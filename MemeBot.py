@@ -105,9 +105,4 @@ async def meme_loop(message:types.Message, str):
 
 
 
-
-def main():
-    executor.start_polling(dp, skip_updates=True, on_startup=on_startup)
-
-if __name__=='__main__':
-    main()
+executor.start_polling(dp, skip_updates=True, on_startup=on_startup)
