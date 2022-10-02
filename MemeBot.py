@@ -56,7 +56,12 @@ async def mems(message, str):
     if 'Memes' in message.text:
         await asyncio.ensure_future(meme_loop(message, str), loop=loop)
 
+        
+@dp.message_handler(commands='help')
+async def help(message:types.Message):
+    await message.answer('Если вам надоела рассылка, то следует остановить бота.')
 
+    
 @dp.message_handler(commands=['HotMemes','Stop'])
 async def send_meme_hot(message:types.Message):
     await mems(message, 'hot')
