@@ -96,7 +96,10 @@ async def meme_loop(message:types.Message, str):
         item = await memes_sub.__anext__()
         if item.title not in meme:
             meme.append(item.title)
-            await message.answer_photo(item.url, caption=item.title)
+            try:
+              await message.answer_photo(item.url, caption=item.title)
+            except Exception as ex:
+              pass
 
 
 
