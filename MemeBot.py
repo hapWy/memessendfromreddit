@@ -35,10 +35,9 @@ b1 = KeyboardButton('/TopMemes')
 b2 = KeyboardButton('/HotMemes')
 b3 = KeyboardButton('/RisingMemes')
 b4 = KeyboardButton('/NewMemes')
-b5 = KeyboardButton('/Stop')
 kb = ReplyKeyboardMarkup(resize_keyboard=True,one_time_keyboard= True)
 
-kb.row(b1,b2).row(b3,b4).add(b5)
+kb.row(b1,b2).row(b3,b4)
 
 
 
@@ -56,9 +55,6 @@ async def mems(message, str):
     loop = asyncio.get_event_loop()
     if 'Memes' in message.text:
         await asyncio.ensure_future(meme_loop(message, str), loop=loop)
-
-    else:
-        loop.stop()
 
 
 @dp.message_handler(commands=['HotMemes','Stop'])
